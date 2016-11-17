@@ -37,6 +37,7 @@
             this.pokażToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.koniecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +49,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(398, 98);
             this.textBox1.TabIndex = 0;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -81,14 +83,14 @@
             // pokażToolStripMenuItem
             // 
             this.pokażToolStripMenuItem.Name = "pokażToolStripMenuItem";
-            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.pokażToolStripMenuItem.Text = "Pokaż";
             this.pokażToolStripMenuItem.Click += new System.EventHandler(this.pokażToolStripMenuItem_Click);
             // 
             // koniecToolStripMenuItem
             // 
             this.koniecToolStripMenuItem.Name = "koniecToolStripMenuItem";
-            this.koniecToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.koniecToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.koniecToolStripMenuItem.Text = "Koniec";
             this.koniecToolStripMenuItem.Click += new System.EventHandler(this.koniecToolStripMenuItem_Click);
             // 
@@ -99,8 +101,13 @@
             this.notifyIcon1.BalloonTipTitle = "Client UDP - system tray";
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "MD UDP - System Tray";
             this.notifyIcon1.Visible = true;
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Form1
             // 
@@ -131,6 +138,7 @@
         private System.Windows.Forms.ToolStripMenuItem pokażToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem koniecToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

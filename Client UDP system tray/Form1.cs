@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,6 +35,7 @@ namespace Client_UDP_system_tray
             WindowState = FormWindowState.Minimized;
             ShowInTaskbar = false;
         }
+
 
         private void pokażToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -65,6 +68,28 @@ namespace Client_UDP_system_tray
         private void button1_Click(object sender, EventArgs e)
         {
             hideform();
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            openForm();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            notifyIcon1.BalloonTipText = "Nowa wiadomosć...";
+            notifyIcon1.ShowBalloonTip(30);
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (UdpClient klient = new UdpClient(25000))
+            {
+                IPEndPoint IPserver = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 25000);
+                Byte[] get = klient.Receive(ref IPserver);
+                string txt = Encoding.ASCII.GetString(get);
+           
+            }
         }
     }
 }

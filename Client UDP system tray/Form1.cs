@@ -17,9 +17,23 @@ namespace Client_UDP_system_tray
         public Form1()
         {
             InitializeComponent();
+            backgroundWorker1.RunWorkerAsync();
         }
         bool zamkniecie = false;
+        delegate void SetTextCallBack(string text);
 
+        private void SetText(string text)
+        {
+            if (textBox1.InvokeRequired)
+            {
+                SetTextCallBack f = new SetTextCallBack(SetText);
+                this.Invoke(f, new object[] { text });
+            }
+            else
+            {
+                this.textBox1.Text = text;
+            }
+        }
         private void openForm()
         {
             WindowState = FormWindowState.Normal;
@@ -53,6 +67,8 @@ namespace Client_UDP_system_tray
             {
                 e.Cancel = true;
                 hideform();
+                if (backgroundWorker1.IsBusy == false)
+                    backgroundWorker1.RunWorkerAsync();
             }
             else
             {
@@ -67,6 +83,8 @@ namespace Client_UDP_system_tray
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (backgroundWorker1.IsBusy == false)
+                backgroundWorker1.RunWorkerAsync();
             hideform();
         }
 
@@ -88,7 +106,7 @@ namespace Client_UDP_system_tray
                 IPEndPoint IPserver = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 25000);
                 Byte[] get = klient.Receive(ref IPserver);
                 string txt = Encoding.ASCII.GetString(get);
-           
+                this.SetText(txt);
             }
         }
     }

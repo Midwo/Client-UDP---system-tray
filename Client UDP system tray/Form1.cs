@@ -26,8 +26,9 @@ namespace Client_UDP_system_tray
         {
             if (textBox1.InvokeRequired)
             {
-                SetTextCallBack f = new SetTextCallBack(SetText);
-                this.Invoke(f, new object[] { text });
+                // SetTextCallBack f = new SetTextCallBack(SetText);
+              //  this.Invoke(f, new object[] { text });
+                this.Invoke(new SetTextCallBack(SetText), new object[] { text });
             }
             else
             {

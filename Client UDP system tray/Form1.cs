@@ -32,8 +32,13 @@ namespace Client_UDP_system_tray
             else
             {
                 this.textBox1.Text = text;
+             
             }
+
         }
+
+
+     
         private void openForm()
         {
             WindowState = FormWindowState.Normal;
@@ -108,6 +113,12 @@ namespace Client_UDP_system_tray
                 string txt = Encoding.ASCII.GetString(get);
                 this.SetText(txt);
             }
+        }
+
+        private void nasłuchujDalejToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy == false)
+                backgroundWorker1.RunWorkerAsync();
         }
     }
 }

@@ -38,6 +38,7 @@
             this.koniecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.nasłuchujDalejToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,22 +76,23 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pokażToolStripMenuItem,
+            this.nasłuchujDalejToolStripMenuItem,
             this.koniecToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(111, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 92);
             this.contextMenuStrip1.Text = "Menu";
             // 
             // pokażToolStripMenuItem
             // 
             this.pokażToolStripMenuItem.Name = "pokażToolStripMenuItem";
-            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.pokażToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.pokażToolStripMenuItem.Text = "Pokaż";
             this.pokażToolStripMenuItem.Click += new System.EventHandler(this.pokażToolStripMenuItem_Click);
             // 
             // koniecToolStripMenuItem
             // 
             this.koniecToolStripMenuItem.Name = "koniecToolStripMenuItem";
-            this.koniecToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.koniecToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.koniecToolStripMenuItem.Text = "Koniec";
             this.koniecToolStripMenuItem.Click += new System.EventHandler(this.koniecToolStripMenuItem_Click);
             // 
@@ -108,6 +110,13 @@
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // nasłuchujDalejToolStripMenuItem
+            // 
+            this.nasłuchujDalejToolStripMenuItem.Name = "nasłuchujDalejToolStripMenuItem";
+            this.nasłuchujDalejToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.nasłuchujDalejToolStripMenuItem.Text = "Nasłuchuj dalej";
+            this.nasłuchujDalejToolStripMenuItem.Click += new System.EventHandler(this.nasłuchujDalejToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -139,6 +148,7 @@
         private System.Windows.Forms.ToolStripMenuItem koniecToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.ToolStripMenuItem nasłuchujDalejToolStripMenuItem;
     }
 }
 

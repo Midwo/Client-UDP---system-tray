@@ -33,7 +33,7 @@ namespace Client_UDP_system_tray
             else
             {
                 this.textBox1.Text = text;
-             
+               
             }
 
         }
@@ -107,12 +107,25 @@ namespace Client_UDP_system_tray
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+          ///////  never ending story
+            //for (int i = 100; i > 0;)
+            //{
+            //    using (UdpClient klient = new UdpClient(25000))
+            //    {
+            //        IPEndPoint IPserver = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 25000);
+            //        Byte[] get = klient.Receive(ref IPserver);
+            //        string txt = Encoding.ASCII.GetString(get);
+            //        this.SetText(txt);
+
+            //    }
+            //}
             using (UdpClient klient = new UdpClient(25000))
             {
                 IPEndPoint IPserver = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 25000);
                 Byte[] get = klient.Receive(ref IPserver);
                 string txt = Encoding.ASCII.GetString(get);
                 this.SetText(txt);
+
             }
         }
 
